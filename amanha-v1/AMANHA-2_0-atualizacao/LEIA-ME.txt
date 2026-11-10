@@ -1,0 +1,31 @@
+AMANHÃ 2.0 — pacote independente de atualização
+
+CONTEÚDO
+index.html, styles.css, app.js, config.js, supabase.sql
+
+IMPORTANTE: Este é um novo módulo funcional, NÃO uma modificação dos arquivos originais do AMANHÃ v1.
+O site atual não foi alterado. Teste em uma implantação separada antes de substituir a versão atual.
+
+PASSOS
+1. Faça backup do repositório atual e, de preferência, crie um novo projeto de teste no Supabase.
+2. No Supabase > SQL Editor, execute supabase.sql. Se houver tabelas com os mesmos nomes e esquemas diferentes, NÃO execute sem revisão/migração.
+3. Em config.js, preencha somente supabaseUrl e supabasePublishableKey. NUNCA cole secret/service_role.
+4. Em Supabase > Authentication > URL Configuration, defina a URL pública do site de teste e os redirecionamentos autorizados.
+5. Publique estes arquivos juntos no Netlify (site de teste). Não inclua supabase.sql na pasta pública se possível.
+6. Cadastre um usuário, confirme o e-mail se necessário. No Supabase Authentication > Users, copie o UUID do seu usuário e, no SQL Editor, execute o INSERT de admin_users indicado no final do arquivo SQL.
+7. Saia e entre novamente; o menu Administração aparecerá.
+8. Cadastre um segundo usuário de teste e marque o consentimento de atendimento. Verifique a visualização no painel administrativo e revogue o consentimento para testar o bloqueio.
+
+RECURSOS
+- Cadastro, login, redefinição de senha por e-mail (recuperação precisa ser concluída no Supabase/fluxo de UI).
+- Diagnóstico financeiro com histórico, hábitos atuais, metas e check-ins mensais.
+- Estimativas educativas de reserva e proteção (sem promessa ou recomendação de produto).
+- Painel administrativo com dados consentidos, metas, sugestões e notas.
+
+LIMITAÇÕES / ANTES DE PRODUÇÃO
+- Recuperação de senha envia e-mail, mas a tela para definir nova senha ainda não está implementada.
+- Não há cobrança, marketplace, cotação real de seguro, CRM avançado nem IA conectada.
+- Fórmulas de proteção são simplificadas e não substituem análise profissional.
+- Não há migração automática dos diagnósticos da v1 nem sincronização dos dados armazenados localmente.
+- Revisar políticas de privacidade, consentimento, LGPD, retenção de dados e segurança antes de receber dados reais.
+- O acesso administrativo depende de inclusão manual do UUID no banco.
